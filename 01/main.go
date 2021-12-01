@@ -9,23 +9,7 @@ import (
 )
 
 func getNumIncreasing(list []int) int {
-
-	prev := 0
-	numIncreased := 0
-
-	for i, v := range list {
-		if i == 1 {
-			continue
-		}
-
-		if v > prev {
-			numIncreased = numIncreased + 1
-		}
-
-		prev = v
-	}
-
-	return numIncreased
+	return getNumIncreasingOffset(list, 1)
 }
 
 func sum(list []int) int {
@@ -73,5 +57,6 @@ func main() {
 		inputAsInt[i], _ = strconv.Atoi(v)
 	}
 
+	fmt.Println(getNumIncreasing(inputAsInt))
 	fmt.Println(getNumIncreasingOffset(inputAsInt, 3))
 }
