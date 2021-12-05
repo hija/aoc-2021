@@ -1,8 +1,10 @@
-# Advent of Code 2021
+# 🎄 [Advent of Code 2021](https://adventofcode.com/2021/)
 
-Just like last year, I wanna practice using go, since I only feel fluent in Python.
+![Language](https://badgen.net/badge/Language/Go/blue)
 
-So don't expect the code to be perfect - I am practicing.
+
+Just like last year, I **wanna practice programming with go**, since I only feel fluent in Python.
+So don't expect the code to be perfect - I am practicing :)
 
 ## Run the solution for one day (e.g. day 01)
 
