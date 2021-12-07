@@ -13,11 +13,12 @@ So don't expect the code to be perfect - I am practicing :)
 
 ## Overview
 
-| Task 	| Theme                	| Progress? 	|
-|------	|----------------------	|-----------	|
-| 01   	| Sonar Sweep          	| ⭐️⭐️        	|
-| 02   	| Dive!                	| ⭐️⭐️        	|
-| 03   	| Binary Diagnostic    	| ⭐️⭐️        	|
-| 04   	| Giant Squid          	| ⭐️⭐️        	|
-| 05   	| Hydrothermal Venture 	| ⭐️⭐️        	|
-| 06   	| Lanternfish          	| ⭐️⭐️        	|
+| Task 	| Theme                	  | Progress? 	|
+|------	|------------------------ |-----------	|
+| 01   	| Sonar Sweep          	  | ⭐️⭐️        	|
+| 02   	| Dive!                	  | ⭐️⭐️        	|
+| 03   	| Binary Diagnostic    	  | ⭐️⭐️        	|
+| 04   	| Giant Squid          	  | ⭐️⭐️        	|
+| 05   	| Hydrothermal Venture 	  | ⭐️⭐️        	|
+| 06   	| Lanternfish          	  | ⭐️⭐️        	|
+| 07   	| The Treachery of Whales | ⭐️⭐️        	|
