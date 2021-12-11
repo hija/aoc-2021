@@ -22,4 +22,4 @@ So don't expect the code to be perfect - I am practicing :)
 | 05   	| Hydrothermal Venture 	  | ⭐️⭐️        	|
 | 06   	| Lanternfish          	  | ⭐️⭐️        	|
 | 07   	| The Treachery of Whales | ⭐️⭐️        	|
-| 08   	| Seven Segment Search    | ⭐️           	|
+| 08   	| Seven Segment Search    | ⭐️⭐️         	|
