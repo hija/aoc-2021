@@ -115,12 +115,29 @@ func main() {
 	}
 
 	flashCounter := 0
+	firstTickAllFlashed := -1
 	for tick := 0; tick < 100; tick++ {
 		newGameField, flashes := tickGamefield(gameField)
 		flashCounter += flashes
+		if flashes == 100 && firstTickAllFlashed == -1 {
+			firstTickAllFlashed = tick + 1 // + 1 bc answer should not be 0 based
+		}
+		gameField = newGameField
+	}
+
+	// Task 2: If we are still not done with all flashing, continue until we do
+	tick := 100
+	for firstTickAllFlashed == -1 {
+		newGameField, flashes := tickGamefield(gameField)
+		if flashes == 100 && firstTickAllFlashed == -1 {
+			firstTickAllFlashed = tick + 1 // + 1 bc answer should not be 0 based
+		}
+		tick++
 		gameField = newGameField
 	}
 
 	fmt.Print("Task 1: ")
 	fmt.Println(flashCounter)
+	fmt.Print("Task 2: ")
+	fmt.Println(firstTickAllFlashed)
 }
