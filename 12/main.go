@@ -58,14 +58,30 @@ func (p Path) printPath() {
 	fmt.Println()
 }
 
-func (p Path) isValidPath() bool {
+func countOccurences(caves []*Cave, cave Cave) int {
+	count := 0
+	for _, v := range caves {
+		if v.name == cave.name {
+			count++
+		}
+	}
+	return count
+}
+
+func (p Path) isValidPath(maxvisits int) bool {
 	// Check if a part is valid, i.e. if a small cave has not been visited more than once
 
 	visitedSmallCaves := []*Cave{}
+	maxAllowedOccurence := maxvisits
+
 	for _, element := range p.caves {
 		if !element.isBigCave {
-			if element.containedIn(visitedSmallCaves) {
+			count := countOccurences(visitedSmallCaves, *element)
+			if count >= maxAllowedOccurence {
 				return false
+			}
+			if count == maxvisits-1 {
+				maxAllowedOccurence = 1
 			}
 			visitedSmallCaves = append(visitedSmallCaves, element)
 		}
@@ -73,10 +89,14 @@ func (p Path) isValidPath() bool {
 	return true
 }
 
-func findPathToEnd(p Path) []Path {
+func findPathToEnd(p Path, maxVisitsSmallCave int) []Path {
 	lastElement := p.caves[len(p.caves)-1]
 	nextPaths := []Path{}
 	for _, nextStep := range lastElement.connections {
+
+		if nextStep.name == "start" {
+			continue
+		}
 
 		currentPathCaves := make([]*Cave, len(p.caves)+1)
 		copy(currentPathCaves, p.caves)
@@ -84,15 +104,14 @@ func findPathToEnd(p Path) []Path {
 
 		newPath := Path{caves: currentPathCaves}
 
-		if !newPath.isValidPath() {
+		if !newPath.isValidPath(maxVisitsSmallCave) {
 			continue
 		}
 
-		// newPath.printPath()
-
 		if nextStep.name != "end" {
-			nextPaths = append(nextPaths, findPathToEnd(newPath)...)
+			nextPaths = append(nextPaths, findPathToEnd(newPath, maxVisitsSmallCave)...)
 		} else {
+			newPath.printPath()
 			nextPaths = append(nextPaths, newPath)
 		}
 	}
@@ -104,7 +123,15 @@ func findPathToEnd(p Path) []Path {
 func solveTaskOne(network []*Cave) int {
 
 	startCave := getCaveByName("start", network)
-	paths := findPathToEnd(Path{caves: []*Cave{startCave}})
+	paths := findPathToEnd(Path{caves: []*Cave{startCave}}, 1)
+
+	return len(paths)
+}
+
+func solveTaskTwo(network []*Cave) int {
+
+	startCave := getCaveByName("start", network)
+	paths := findPathToEnd(Path{caves: []*Cave{startCave}}, 2)
 
 	return len(paths)
 }
@@ -153,4 +180,5 @@ func main() {
 	}
 
 	fmt.Println("Task 1:", solveTaskOne(caves))
+	fmt.Println("Task 2:", solveTaskTwo(caves))
 }
