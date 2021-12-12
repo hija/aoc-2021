@@ -25,4 +25,5 @@ So don't expect the code to be perfect - I am practicing :)
 | 08   	| Seven Segment Search    | ⭐️⭐️         	|
 | 09   	| Smoke Basin             | ⭐️⭐️         	|
 | 10   	| Syntax Scorin           | ⭐️⭐️         	|
-| 11   	| Dumbo Octopus           | ⭐️           	|
+| 11   	| Dumbo Octopus           | ⭐️⭐️         	|
+| 12   	| Passage Pathing         |             	|
